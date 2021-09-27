@@ -4,6 +4,10 @@ inputs:
   node-version:
     description: 'The version of node'
     required: true
+  shell:
+    description: 'The shell to run on'
+    required: false
+    default: 'bash'
     
 runs:
   using: 'composite'
@@ -16,13 +20,13 @@ runs:
         check-latest: true
 
     - name: Install dependencies 👨🏻‍💻
-      shell: bash
+      shell: ${{ inputs.shell }
       run: npm ci --prefer-offline --no-audit
 
     - name: Run linter 👀
-      shell: bash
+      shell: ${{ inputs.shell }
       run: npm run lint
 
     - name: Run tests 🧪
-      shell: bash
+      shell: ${{ inputs.shell }
       run: npm run test
