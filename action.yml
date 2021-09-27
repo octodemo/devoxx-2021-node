@@ -1,13 +1,12 @@
 name: 'Node CI'
 description: 'Standard CI for a Node project'
+defaults:
+  run:
+    shell: bash
 inputs:
   node-version:
     description: 'The version of node'
     required: true
-  shell:
-    description: 'The shell to run on'
-    required: false
-    default: 'bash'
 runs:
   using: 'composite'
   steps:
@@ -19,13 +18,10 @@ runs:
         check-latest: true
 
     - name: Install dependencies 👨🏻‍💻
-      shell: ${{ inputs.shell }}
       run: npm ci --prefer-offline --no-audit
 
     - name: Run linter 👀
-      shell: ${{ inputs.shell }}
       run: npm run lint
 
     - name: Run tests 🧪
-      shell: ${{ inputs.shell }}
       run: npm run test
