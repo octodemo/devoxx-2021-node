@@ -4,8 +4,9 @@ inputs:
   node-version:
     description: 'The version of node'
     required: true
+    
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Setup node env 🏗
         uses: actions/setup-node@v2
