@@ -1,7 +1,7 @@
 name: 'Node CI'
 description: 'Standard CI for a Node project'
 inputs:
-  node-version:  
+  node-version:
     description: 'The version of node'
     required: true
 runs:
