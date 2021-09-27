@@ -16,10 +16,13 @@ runs:
         check-latest: true
 
     - name: Install dependencies 👨🏻‍💻
+      shell: bash
       run: npm ci --prefer-offline --no-audit
 
     - name: Run linter 👀
+      shell: bash
       run: npm run lint
 
     - name: Run tests 🧪
+      shell: bash
       run: npm run test
