@@ -8,7 +8,6 @@ inputs:
     description: 'The shell to run on'
     required: false
     default: 'bash'
-    
 runs:
   using: 'composite'
   steps:
@@ -20,7 +19,7 @@ runs:
         check-latest: true
 
     - name: Install dependencies 👨🏻‍💻
-      shell: ${{ inputs.shell }}
+      shell: ${{ inputs.node-version }}
       run: npm ci --prefer-offline --no-audit
 
     - name: Run linter 👀
